@@ -11041,7 +11041,7 @@ bool js_cocos2dx_ui_UICCTextField_onTextFieldDeleteBackward(JSContext *cx, uint3
     if (argc == 3) {
         cocos2d::TextFieldTTF* arg0 = nullptr;
         const char* arg1 = nullptr;
-        unsigned long arg2 = 0;
+        unsigned int arg2 = 0;
         do {
             if (args.get(0).isNull()) { arg0 = nullptr; break; }
             if (!args.get(0).isObject()) { ok = false; break; }
@@ -11052,7 +11052,7 @@ bool js_cocos2dx_ui_UICCTextField_onTextFieldDeleteBackward(JSContext *cx, uint3
             JSB_PRECONDITION2( arg0, cx, false, "Invalid Native Object");
         } while (0);
         std::string arg1_tmp; ok &= jsval_to_std_string(cx, args.get(1), &arg1_tmp); arg1 = arg1_tmp.c_str();
-        ok &= jsval_to_ulong(cx, args.get(2), &arg2);
+        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_UICCTextField_onTextFieldDeleteBackward : Error processing arguments");
         bool ret = cobj->onTextFieldDeleteBackward(arg0, arg1, arg2);
         JS::RootedValue jsret(cx);
@@ -11150,9 +11150,9 @@ bool js_cocos2dx_ui_UICCTextField_getCharCount(JSContext *cx, uint32_t argc, JS:
     cocos2d::ui::UICCTextField* cobj = (cocos2d::ui::UICCTextField *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_ui_UICCTextField_getCharCount : Invalid Native Object");
     if (argc == 0) {
-        unsigned long ret = cobj->getCharCount();
+        unsigned int ret = cobj->getCharCount();
         JS::RootedValue jsret(cx);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_UICCTextField_getCharCount : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -11247,9 +11247,9 @@ bool js_cocos2dx_ui_UICCTextField_insertText(JSContext *cx, uint32_t argc, JS::V
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_ui_UICCTextField_insertText : Invalid Native Object");
     if (argc == 2) {
         const char* arg0 = nullptr;
-        unsigned long arg1 = 0;
+        unsigned int arg1 = 0;
         std::string arg0_tmp; ok &= jsval_to_std_string(cx, args.get(0), &arg0_tmp); arg0 = arg0_tmp.c_str();
-        ok &= jsval_to_ulong(cx, args.get(1), &arg1);
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_UICCTextField_insertText : Error processing arguments");
         cobj->insertText(arg0, arg1);
         args.rval().setUndefined();
@@ -11290,7 +11290,7 @@ bool js_cocos2dx_ui_UICCTextField_onTextFieldInsertText(JSContext *cx, uint32_t 
     if (argc == 3) {
         cocos2d::TextFieldTTF* arg0 = nullptr;
         const char* arg1 = nullptr;
-        unsigned long arg2 = 0;
+        unsigned int arg2 = 0;
         do {
             if (args.get(0).isNull()) { arg0 = nullptr; break; }
             if (!args.get(0).isObject()) { ok = false; break; }
@@ -11301,7 +11301,7 @@ bool js_cocos2dx_ui_UICCTextField_onTextFieldInsertText(JSContext *cx, uint32_t 
             JSB_PRECONDITION2( arg0, cx, false, "Invalid Native Object");
         } while (0);
         std::string arg1_tmp; ok &= jsval_to_std_string(cx, args.get(1), &arg1_tmp); arg1 = arg1_tmp.c_str();
-        ok &= jsval_to_ulong(cx, args.get(2), &arg2);
+        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_UICCTextField_onTextFieldInsertText : Error processing arguments");
         bool ret = cobj->onTextFieldInsertText(arg0, arg1, arg2);
         JS::RootedValue jsret(cx);
@@ -12160,8 +12160,8 @@ bool js_cocos2dx_ui_TextField_setCursorPosition(JSContext *cx, uint32_t argc, JS
     cocos2d::ui::TextField* cobj = (cocos2d::ui::TextField *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_ui_TextField_setCursorPosition : Invalid Native Object");
     if (argc == 1) {
-        unsigned long arg0 = 0;
-        ok &= jsval_to_ulong(cx, args.get(0), &arg0);
+        unsigned int arg0 = 0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_TextField_setCursorPosition : Error processing arguments");
         cobj->setCursorPosition(arg0);
         args.rval().setUndefined();
@@ -13705,11 +13705,11 @@ bool js_cocos2dx_ui_Helper_getSubStringOfUTF8String(JSContext *cx, uint32_t argc
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 3) {
         std::string arg0;
-        unsigned long arg1 = 0;
-        unsigned long arg2 = 0;
+        unsigned int arg1 = 0;
+        unsigned int arg2 = 0;
         ok &= jsval_to_std_string(cx, args.get(0), &arg0);
-        ok &= jsval_to_ulong(cx, args.get(1), &arg1);
-        ok &= jsval_to_ulong(cx, args.get(2), &arg2);
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
+        ok &= jsval_to_int32(cx, args.get(2), (int32_t *)&arg2);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_Helper_getSubStringOfUTF8String : Error processing arguments");
 
         std::string ret = cocos2d::ui::Helper::getSubStringOfUTF8String(arg0, arg1, arg2);
@@ -20814,9 +20814,9 @@ bool js_cocos2dx_ui_TabControl_getTabCount(JSContext *cx, uint32_t argc, JS::Val
     cocos2d::ui::TabControl* cobj = (cocos2d::ui::TabControl *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_ui_TabControl_getTabCount : Invalid Native Object");
     if (argc == 0) {
-        unsigned long ret = cobj->getTabCount();
+        unsigned int ret = cobj->getTabCount();
         JS::RootedValue jsret(cx);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_ui_TabControl_getTabCount : error parsing return value");
         args.rval().set(jsret);
         return true;

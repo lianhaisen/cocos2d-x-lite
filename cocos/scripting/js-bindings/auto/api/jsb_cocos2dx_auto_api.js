@@ -6519,6 +6519,42 @@ MoveTo : function (
 };
 
 /**
+ * @class ParabolyTo
+ */
+cc.ParabolyTo = {
+
+/**
+ * @method initWithDuration
+ * @param {float} arg0
+ * @param {vec2_object} arg1
+ * @param {vec2_object} arg2
+ * @param {float} arg3
+ * @param {float} arg4
+ * @return {bool}
+ */
+initWithDuration : function (
+float, 
+vec2, 
+vec2, 
+float, 
+float 
+)
+{
+    return false;
+},
+
+/**
+ * @method ParabolyTo
+ * @constructor
+ */
+ParabolyTo : function (
+)
+{
+},
+
+};
+
+/**
  * @class SkewTo
  */
 cc.SkewTo = {
@@ -11293,6 +11329,14 @@ isEnabled : function (
 },
 
 /**
+ * @method alignItemsHorizontally
+ */
+alignItemsHorizontally : function (
+)
+{
+},
+
+/**
  * @method alignItemsHorizontallyWithPadding
  * @param {float} arg0
  */
@@ -11308,14 +11352,6 @@ float
  */
 alignItemsVerticallyWithPadding : function (
 float 
-)
-{
-},
-
-/**
- * @method alignItemsHorizontally
- */
-alignItemsHorizontally : function (
 )
 {
 },
@@ -15853,7 +15889,7 @@ cc.TextFieldTTF = {
 
 /**
  * @method getCharCount
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getCharCount : function (
 )
@@ -16013,10 +16049,10 @@ getPlaceHolder : function (
 
 /**
  * @method setCursorPosition
- * @param {unsigned long} arg0
+ * @param {unsigned int} arg0
  */
 setCursorPosition : function (
-long 
+int 
 )
 {
 },
@@ -16562,18 +16598,6 @@ size
 },
 
 /**
- * @method initWithTMXFile
- * @param {String} arg0
- * @return {bool}
- */
-initWithTMXFile : function (
-str 
-)
-{
-    return false;
-},
-
-/**
  * @method getOrientation
  * @return {int}
  */
@@ -16678,13 +16702,15 @@ int
 },
 
 /**
- * @method getTilesets
-* @return {Array|Array}
-*/
-getTilesets : function(
+ * @method initWithTMXFile
+ * @param {String} arg0
+ * @return {bool}
+ */
+initWithTMXFile : function (
+str 
 )
 {
-    return new Array();
+    return false;
 },
 
 /**
@@ -16695,6 +16721,16 @@ getParentGID : function (
 )
 {
     return 0;
+},
+
+/**
+ * @method getTilesets
+* @return {Array|Array}
+*/
+getTilesets : function(
+)
+{
+    return new Array();
 },
 
 /**

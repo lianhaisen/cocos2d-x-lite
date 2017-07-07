@@ -947,6 +947,16 @@ bool js_cocos2dx_MoveTo_initWithDuration(JSContext *cx, uint32_t argc, JS::Value
 bool js_cocos2dx_MoveTo_create(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_MoveTo_MoveTo(JSContext *cx, uint32_t argc, JS::Value *vp);
 
+extern JSClass  *jsb_cocos2d_ParabolyTo_class;
+extern JS::PersistentRootedObject *jsb_cocos2d_ParabolyTo_prototype;
+
+bool js_cocos2dx_ParabolyTo_constructor(JSContext *cx, uint32_t argc, JS::Value *vp);
+void js_cocos2dx_ParabolyTo_finalize(JSContext *cx, JSObject *obj);
+void js_register_cocos2dx_ParabolyTo(JSContext *cx, JS::HandleObject global);
+void register_all_cocos2dx(JSContext* cx, JS::HandleObject obj);
+bool js_cocos2dx_ParabolyTo_initWithDuration(JSContext *cx, uint32_t argc, JS::Value *vp);
+bool js_cocos2dx_ParabolyTo_ParabolyTo(JSContext *cx, uint32_t argc, JS::Value *vp);
+
 extern JSClass  *jsb_cocos2d_SkewTo_class;
 extern JS::PersistentRootedObject *jsb_cocos2d_SkewTo_prototype;
 
@@ -2015,9 +2025,9 @@ bool js_cocos2dx_Menu_initWithArray(JSContext *cx, uint32_t argc, JS::Value *vp)
 bool js_cocos2dx_Menu_setEnabled(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_Menu_alignItemsVertically(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_Menu_isEnabled(JSContext *cx, uint32_t argc, JS::Value *vp);
+bool js_cocos2dx_Menu_alignItemsHorizontally(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_Menu_alignItemsHorizontallyWithPadding(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_Menu_alignItemsVerticallyWithPadding(JSContext *cx, uint32_t argc, JS::Value *vp);
-bool js_cocos2dx_Menu_alignItemsHorizontally(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_Menu_Menu(JSContext *cx, uint32_t argc, JS::Value *vp);
 
 extern JSClass  *jsb_cocos2d_MotionStreak_class;
@@ -2805,7 +2815,6 @@ void register_all_cocos2dx(JSContext* cx, JS::HandleObject obj);
 bool js_cocos2dx_TMXMapInfo_getAllChildren(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_getHexSideLength(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_setTileSize(JSContext *cx, uint32_t argc, JS::Value *vp);
-bool js_cocos2dx_TMXMapInfo_initWithTMXFile(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_getOrientation(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_setObjectGroups(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_setLayers(JSContext *cx, uint32_t argc, JS::Value *vp);
@@ -2816,8 +2825,9 @@ bool js_cocos2dx_TMXMapInfo_parseXMLString(JSContext *cx, uint32_t argc, JS::Val
 bool js_cocos2dx_TMXMapInfo_getLayers(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_getStaggerAxis(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_setHexSideLength(JSContext *cx, uint32_t argc, JS::Value *vp);
-bool js_cocos2dx_TMXMapInfo_getTilesets(JSContext *cx, uint32_t argc, JS::Value *vp);
+bool js_cocos2dx_TMXMapInfo_initWithTMXFile(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_getParentGID(JSContext *cx, uint32_t argc, JS::Value *vp);
+bool js_cocos2dx_TMXMapInfo_getTilesets(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_setParentElement(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_initWithXML(JSContext *cx, uint32_t argc, JS::Value *vp);
 bool js_cocos2dx_TMXMapInfo_setParentGID(JSContext *cx, uint32_t argc, JS::Value *vp);

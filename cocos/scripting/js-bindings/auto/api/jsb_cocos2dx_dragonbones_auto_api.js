@@ -10,7 +10,7 @@ dragonBones.BaseObject = {
 
 /**
  * @method getClassTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getClassTypeIndex : function (
 )
@@ -28,22 +28,22 @@ returnToPool : function (
 
 /**
  * @method clearPool
- * @param {unsigned long} arg0
+ * @param {unsigned int} arg0
  */
 clearPool : function (
-long 
+int 
 )
 {
 },
 
 /**
  * @method setMaxCount
- * @param {unsigned long} arg0
- * @param {unsigned long} arg1
+ * @param {unsigned int} arg0
+ * @param {unsigned int} arg1
  */
 setMaxCount : function (
-long, 
-long 
+int, 
+int 
 )
 {
 },
@@ -177,7 +177,7 @@ dragonBones.AnimationData = {
 
 /**
  * @method getClassTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getClassTypeIndex : function (
 )
@@ -199,7 +199,7 @@ str
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -225,7 +225,7 @@ dragonBones.BoneData = {
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -251,7 +251,7 @@ dragonBones.SlotData = {
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -287,7 +287,7 @@ dragonBones.SkinData = {
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -381,7 +381,7 @@ getDefaultAnimation : function (
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -439,7 +439,7 @@ str
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -465,7 +465,7 @@ dragonBones.EventObject = {
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -669,7 +669,7 @@ void
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -917,7 +917,7 @@ int
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -1060,7 +1060,7 @@ invalidUpdate : function (
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -1456,7 +1456,7 @@ str
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -1482,7 +1482,7 @@ dragonBones.CCTextureData = {
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -1508,7 +1508,7 @@ dragonBones.CCTextureAtlasData = {
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )
@@ -1658,7 +1658,7 @@ dragonBones.CCSlot = {
 
 /**
  * @method getClassTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getClassTypeIndex : function (
 )
@@ -1668,7 +1668,7 @@ getClassTypeIndex : function (
 
 /**
  * @method getTypeIndex
- * @return {unsigned long}
+ * @return {unsigned int}
  */
 getTypeIndex : function (
 )

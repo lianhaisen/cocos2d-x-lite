@@ -2633,4 +2633,85 @@ ActionFloat* ActionFloat::reverse() const
     return ActionFloat::create(_duration, _to, _from, _callback);
 }
 
+ParabolyTo* ParabolyTo::create(float duration, const Vec2& beginPos, const Vec2& endPos, float height, float angle)
+{
+	ParabolyTo * ret = new (std::nothrow) ParabolyTo();
+	if (ret && ret->initWithDuration(duration, beginPos, endPos, height, angle))
+	{
+		ret->autorelease();
+		return ret;
+	}
+	delete ret;
+	return nullptr;
+}
+
+float cocos2d::ParabolyTo::getPosY(float posX)
+{
+    auto A = _hightPos;
+	auto B = _beginPos;
+	auto C = _endPos;
+	auto X = posX;
+	auto tmp = _curPos.y;
+	tmp = (C.y * (X - A.x) * (X - B.x)) / ((C.x - A.x) * (C.x - B.x));
+	tmp += (B.y * (X - A.x) * (X - C.x)) / ((B.x - A.x) * (B.x - C.x));
+	tmp += (A.y * (X - B.x) * (X - C.x)) / ((A.x - B.x)  * (A.x - C.x));
+	return tmp;
+}
+
+bool cocos2d::ParabolyTo::initWithDuration(float duration, const Vec2& beginPos, const Vec2& endPos, float height, float angle)
+{
+	bool ret = false;
+	if (ActionInterval::initWithDuration(duration))
+	{
+		_beginPos = beginPos;
+		_endPos = endPos;
+		_endPos = beginPos;
+		auto radian = angle * M_PI / 180;
+		auto q2x = beginPos.x + (endPos.x - beginPos.x) / 2.0;
+		auto heightPos = Vec2(q2x, height + beginPos.y + cos(radian)*q2x);
+		_hightPos = heightPos;
+		_deltaX = endPos.x - beginPos.x;
+		_deltaY = endPos.y - beginPos.y;
+		ret = true;
+
+	}
+	return ret;
+}
+
+void cocos2d::ParabolyTo::update(float dt)
+{
+	if (_target)
+	{
+		auto posx = _beginPos.x;
+		auto posy = _beginPos.y;
+		posx += _deltaX * dt;
+		posy = getPosY(posx);
+
+		auto cur = _curPos;
+		auto radian = atan2(-(posy - cur.y), posx - cur.x);
+		_target->setRotation(radian * (180 / M_PI));
+		auto newPos = Vec2(posx, posy);
+		_target->setPosition(newPos);
+		_curPos = newPos;
+	}
+}
+
+void cocos2d::ParabolyTo::startWithTarget(Node *target)
+{
+	ActionInterval::startWithTarget(target);
+}
+
+ParabolyTo* cocos2d::ParabolyTo::reverse(void) const
+{
+	return nullptr;
+}
+
+ParabolyTo* cocos2d::ParabolyTo::clone() const
+{
+	return nullptr;
+}
+
+
+
 NS_CC_END
+

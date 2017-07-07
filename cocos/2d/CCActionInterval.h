@@ -679,6 +679,34 @@ private:
     CC_DISALLOW_COPY_AND_ASSIGN(MoveTo);
 };
 
+
+class CC_DLL ParabolyTo : public ActionInterval
+{
+	static ParabolyTo* create(float duration, const Vec2& beginPos, const Vec2& endPos,float height,float angle);
+	virtual ParabolyTo* clone() const override;
+	virtual ParabolyTo* reverse(void) const  override;
+	virtual void startWithTarget(Node *target) override;
+	virtual void update(float time) override;
+CC_CONSTRUCTOR_ACCESS:
+	ParabolyTo(){}
+	virtual ~ParabolyTo() {}
+
+	/** initializes the action */
+	bool initWithDuration(float duration, const Vec2& beginPos, const Vec2& endPos, float height, float angle);
+protected:
+	Vec2 _beginPos;
+	Vec2 _endPos;
+	Vec2 _hightPos;
+	float _deltaX;
+	float _deltaY;
+	Vec2 _curPos;
+private:
+	CC_DISALLOW_COPY_AND_ASSIGN(ParabolyTo);
+	float getPosY(float posX);
+};
+
+
+
 /** @class SkewTo
  * @brief Skews a Node object to given angles by modifying it's skewX and skewY attributes
 @since v1.0

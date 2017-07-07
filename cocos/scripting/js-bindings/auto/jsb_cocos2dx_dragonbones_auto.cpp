@@ -14,9 +14,9 @@ bool js_cocos2dx_dragonbones_BaseObject_getClassTypeIndex(JSContext *cx, uint32_
     dragonBones::BaseObject* cobj = (dragonBones::BaseObject *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_dragonbones_BaseObject_getClassTypeIndex : Invalid Native Object");
     if (argc == 0) {
-        unsigned long ret = cobj->getClassTypeIndex();
+        unsigned int ret = cobj->getClassTypeIndex();
         JS::RootedValue jsret(cx);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_BaseObject_getClassTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -46,8 +46,8 @@ bool js_cocos2dx_dragonbones_BaseObject_clearPool(JSContext *cx, uint32_t argc, 
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 1) {
-        unsigned long arg0 = 0;
-        ok &= jsval_to_ulong(cx, args.get(0), &arg0);
+        unsigned int arg0 = 0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_BaseObject_clearPool : Error processing arguments");
         dragonBones::BaseObject::clearPool(arg0);
         args.rval().setUndefined();
@@ -62,10 +62,10 @@ bool js_cocos2dx_dragonbones_BaseObject_setMaxCount(JSContext *cx, uint32_t argc
     JS::CallArgs args = JS::CallArgsFromVp(argc, vp);
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 2) {
-        unsigned long arg0 = 0;
-        unsigned long arg1 = 0;
-        ok &= jsval_to_ulong(cx, args.get(0), &arg0);
-        ok &= jsval_to_ulong(cx, args.get(1), &arg1);
+        unsigned int arg0 = 0;
+        unsigned int arg1 = 0;
+        ok &= jsval_to_int32(cx, args.get(0), (int32_t *)&arg0);
+        ok &= jsval_to_int32(cx, args.get(1), (int32_t *)&arg1);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_BaseObject_setMaxCount : Error processing arguments");
         dragonBones::BaseObject::setMaxCount(arg0, arg1);
         args.rval().setUndefined();
@@ -928,9 +928,9 @@ bool js_cocos2dx_dragonbones_AnimationData_getClassTypeIndex(JSContext *cx, uint
     dragonBones::AnimationData* cobj = (dragonBones::AnimationData *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_dragonbones_AnimationData_getClassTypeIndex : Invalid Native Object");
     if (argc == 0) {
-        unsigned long ret = cobj->getClassTypeIndex();
+        unsigned int ret = cobj->getClassTypeIndex();
         JS::RootedValue jsret(cx);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_AnimationData_getClassTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -974,9 +974,9 @@ bool js_cocos2dx_dragonbones_AnimationData_getTypeIndex(JSContext *cx, uint32_t 
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::AnimationData::getTypeIndex();
+        unsigned int ret = dragonBones::AnimationData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_AnimationData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -1259,9 +1259,9 @@ bool js_cocos2dx_dragonbones_BoneData_getTypeIndex(JSContext *cx, uint32_t argc,
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::BoneData::getTypeIndex();
+        unsigned int ret = dragonBones::BoneData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_BoneData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -1430,9 +1430,9 @@ bool js_cocos2dx_dragonbones_SlotData_getTypeIndex(JSContext *cx, uint32_t argc,
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::SlotData::getTypeIndex();
+        unsigned int ret = dragonBones::SlotData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_SlotData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -1625,9 +1625,9 @@ bool js_cocos2dx_dragonbones_SkinData_getTypeIndex(JSContext *cx, uint32_t argc,
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::SkinData::getTypeIndex();
+        unsigned int ret = dragonBones::SkinData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_SkinData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -1919,9 +1919,9 @@ bool js_cocos2dx_dragonbones_ArmatureData_getTypeIndex(JSContext *cx, uint32_t a
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::ArmatureData::getTypeIndex();
+        unsigned int ret = dragonBones::ArmatureData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_ArmatureData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -2163,9 +2163,9 @@ bool js_cocos2dx_dragonbones_DragonBonesData_getTypeIndex(JSContext *cx, uint32_
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::DragonBonesData::getTypeIndex();
+        unsigned int ret = dragonBones::DragonBonesData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_DragonBonesData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -2296,9 +2296,9 @@ bool js_cocos2dx_dragonbones_EventObject_getTypeIndex(JSContext *cx, uint32_t ar
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::EventObject::getTypeIndex();
+        unsigned int ret = dragonBones::EventObject::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_EventObject_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -3089,9 +3089,9 @@ bool js_cocos2dx_dragonbones_Armature_getTypeIndex(JSContext *cx, uint32_t argc,
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::Armature::getTypeIndex();
+        unsigned int ret = dragonBones::Armature::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_Armature_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -4084,9 +4084,9 @@ bool js_cocos2dx_dragonbones_Animation_getTypeIndex(JSContext *cx, uint32_t argc
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::Animation::getTypeIndex();
+        unsigned int ret = dragonBones::Animation::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_Animation_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -4621,9 +4621,9 @@ bool js_cocos2dx_dragonbones_Bone_getTypeIndex(JSContext *cx, uint32_t argc, JS:
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::Bone::getTypeIndex();
+        unsigned int ret = dragonBones::Bone::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_Bone_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -5836,9 +5836,9 @@ bool js_cocos2dx_dragonbones_AnimationState_getTypeIndex(JSContext *cx, uint32_t
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::AnimationState::getTypeIndex();
+        unsigned int ret = dragonBones::AnimationState::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_AnimationState_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -6168,9 +6168,9 @@ bool js_cocos2dx_dragonbones_CCTextureData_getTypeIndex(JSContext *cx, uint32_t 
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::CCTextureData::getTypeIndex();
+        unsigned int ret = dragonBones::CCTextureData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_CCTextureData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -6263,9 +6263,9 @@ bool js_cocos2dx_dragonbones_CCTextureAtlasData_getTypeIndex(JSContext *cx, uint
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::CCTextureAtlasData::getTypeIndex();
+        unsigned int ret = dragonBones::CCTextureAtlasData::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_CCTextureAtlasData_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -6761,9 +6761,9 @@ bool js_cocos2dx_dragonbones_CCSlot_getClassTypeIndex(JSContext *cx, uint32_t ar
     dragonBones::CCSlot* cobj = (dragonBones::CCSlot *)(proxy ? proxy->ptr : NULL);
     JSB_PRECONDITION2( cobj, cx, false, "js_cocos2dx_dragonbones_CCSlot_getClassTypeIndex : Invalid Native Object");
     if (argc == 0) {
-        unsigned long ret = cobj->getClassTypeIndex();
+        unsigned int ret = cobj->getClassTypeIndex();
         JS::RootedValue jsret(cx);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_CCSlot_getClassTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
@@ -6778,9 +6778,9 @@ bool js_cocos2dx_dragonbones_CCSlot_getTypeIndex(JSContext *cx, uint32_t argc, J
     bool ok = true; CC_UNUSED_PARAM(ok);
     if (argc == 0) {
 
-        unsigned long ret = dragonBones::CCSlot::getTypeIndex();
+        unsigned int ret = dragonBones::CCSlot::getTypeIndex();
         JS::RootedValue jsret(cx, JS::NullHandleValue);
-        ok &= ulong_to_jsval(cx, ret, &jsret);
+        jsret = JS::NumberValue(ret);
         JSB_PRECONDITION2(ok, cx, false, "js_cocos2dx_dragonbones_CCSlot_getTypeIndex : error parsing return value");
         args.rval().set(jsret);
         return true;
